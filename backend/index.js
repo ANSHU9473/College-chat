@@ -7,7 +7,7 @@ const signupRoute = require("./routes/Signup");
 const loginRoute = require("./routes/Login");
 const cors = require("cors");
 const app = express();
-app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3001"], credentials: true }));
+app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3001", "https://college-chat-bofk1.vercel.app"], credentials: true }));
 app.use(express.json());
 app.use("/signup", signupRoute);
 app.use("/login", loginRoute);
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3001", "http://localhost:5173"],
+    origin: ["http://localhost:3001", "http://localhost:5173", "https://college-chat-bofk1.vercel.app"],
     methods: ["GET", "POST"]
   }
 });
