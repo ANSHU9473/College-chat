@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 function createSocket() {
-  return io("http://localhost:5000", { transports: ["websocket"] });
+  return io("https://college-chat-dpqa.vercel.app", { transports: ["websocket"] });
 }
 
 export default function AnonymousChat() {

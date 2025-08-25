@@ -10,7 +10,7 @@ function SignupPage() {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/signup", { email, password, name });
+  const res = await axios.post("https://college-chat-dpqa.vercel.app/signup", { email, password, name });
       if (res.data.msg === "Signup successful") {
         alert("Signup successful! Please login.");
         navigate("/login");
