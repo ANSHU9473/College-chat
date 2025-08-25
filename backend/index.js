@@ -7,14 +7,14 @@ const signupRoute = require("./routes/Signup");
 const loginRoute = require("./routes/Login");
 const cors = require("cors");
 const app = express();
-app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3000"], credentials: true }));
+app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3001"], credentials: true }));
 app.use(express.json());
 app.use("/signup", signupRoute);
 app.use("/login", loginRoute);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "http://localhost:5173"],
+    origin: ["http://localhost:3001", "http://localhost:5173"],
     methods: ["GET", "POST"]
   }
 });
@@ -118,4 +118,4 @@ io.on("connection", (socket) => {
 });
 
 // ---------------- Start Server ----------------
-server.listen(9000, () => console.log("🚀 Server running on port 5000"));
+server.listen(5000, () => console.log("🚀 Server running on port 5000"));
