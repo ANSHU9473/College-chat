@@ -11,6 +11,11 @@ app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3001"], crede
 app.use(express.json());
 app.use("/signup", signupRoute);
 app.use("/login", loginRoute);
+
+// Root route for health check or homepage
+app.get("/", (req, res) => {
+  res.send("College Chat API is running.");
+});
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
